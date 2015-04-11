@@ -11,6 +11,7 @@ http.listen(3000, function(){
 });
 
 io.on('connection', function(socket){
+    io.emit('chat message', 'user joined the chatroom');
     socket.on('disconnect', function(){
         console.log('User got disconnected');
         io.emit('chat message', 'user just got disconnected');
